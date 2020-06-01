@@ -17,11 +17,10 @@ public class UsuarioApi {
 	@Path("ingresar")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Object ingresarUsuario(DatosUsuarioDTO du) {
+	public Response ingresarUsuario(DatosUsuarioDTO du) {
 		try {
 			Usuario user=ServiciosEjb.getUsuarioEjb().persist(du);
-			ResponseOk response = new ResponseOk("Se ha registrado el usuario:", user);
-			return response;
+			return Response.status(200).entity(new ResponseOk("Se ha registrado el usuario:", user)).build();
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new CustomExceptionHandler(e.getMessage());
@@ -32,11 +31,10 @@ public class UsuarioApi {
 	@DELETE
 	@Path("delete/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Object eliminarUsuario(@PathParam("id") int id) {
+	public Response eliminarUsuario(@PathParam("id") int id) {
 		try {
 			ServiciosEjb.getUsuarioEjb().delete(id);
-			ResponseOk response = new ResponseOk("Se ha eliminado con exito.", null);
-			return response;
+			return Response.status(200).entity(new ResponseOk("Se ha eliminado con exito.", null)).build();
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new CustomExceptionHandler(e.getMessage());
@@ -47,12 +45,11 @@ public class UsuarioApi {
 	@Path("buscar/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Object buscarUsuario(@PathParam("id") int id) {
+	public Response buscarUsuario(@PathParam("id") int id) {
 		try {
 			Usuario user=ServiciosEjb.getUsuarioEjb().find(id);
-			ResponseOk response = new ResponseOk("Usuario encontrado:", user);
-			return response;
-		} catch (BOException e) {
+			return Response.status(200).entity( new ResponseOk("Usuario encontrado:", user)).build();
+		} catch (Exception e) {
 			e.printStackTrace();
 			throw new CustomExceptionHandler(e.getMessage());
 		}

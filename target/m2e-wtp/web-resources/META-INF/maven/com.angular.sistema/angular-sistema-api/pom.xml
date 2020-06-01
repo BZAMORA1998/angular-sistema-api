@@ -64,6 +64,34 @@
 		    <artifactId>httpclient</artifactId>
 		    <version>4.5</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.thetransactioncompany/cors-filter -->
+		<dependency>
+		    <groupId>com.thetransactioncompany</groupId>
+		    <artifactId>cors-filter</artifactId>
+		    <version>2.5</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+			<version>3.0.24.Final-redhat-1</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- rest-easy client -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-client</artifactId>
+			<version>3.0.24.Final-redhat-1</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Below dependency is for JAXB integration -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxb-provider</artifactId>
+			<version>3.0.24.Final-redhat-1</version>
+			<scope>provided</scope>
+		</dependency>
+		
   </dependencies>
   
   <build>

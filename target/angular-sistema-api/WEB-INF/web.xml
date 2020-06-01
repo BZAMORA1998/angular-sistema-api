@@ -23,4 +23,9 @@
 		<listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
 	</listener>
 	
+	<context-param>
+    	<param-name>resteasy.providers</param-name>
+    	<param-value>org.jboss.resteasy.plugins.interceptors.CorsFilter</param-value>
+	</context-param>
+	
 </web-app>
